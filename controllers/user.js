@@ -10,7 +10,7 @@ const User = require('../models/User');
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/');
+    return res.redirect('/transaction');
   }
   res.render('account/login', {
     title: 'Login'
@@ -22,7 +22,7 @@ exports.getLogin = (req, res) => {
  * Sign in using email and password.
  */
 exports.postLogin = (req, res, next) => {
-  req.assert('email', 'Email is not valid').isEmail();
+  req.assert('email', 'Username or Email is required').notEmpty();
   req.assert('password', 'Password cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
 
@@ -42,7 +42,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/');
+      res.redirect(req.session.returnTo || '/transaction');
     });
   })(req, res, next);
 };
@@ -62,7 +62,7 @@ exports.logout = (req, res) => {
  */
 exports.getSignup = (req, res) => {
   if (req.user) {
-    return res.redirect('/');
+    return res.redirect('/transaction');
   }
   res.render('account/signup', {
     title: 'Create Account'
@@ -87,6 +87,7 @@ exports.postSignup = (req, res, next) => {
   }
 
   const user = new User({
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password
   });
@@ -103,7 +104,7 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        res.redirect('/');
+        res.redirect('/transaction');
       });
     });
   });
@@ -218,7 +219,7 @@ exports.getOauthUnlink = (req, res, next) => {
  */
 exports.getReset = (req, res, next) => {
   if (req.isAuthenticated()) {
-    return res.redirect('/');
+    return res.redirect('/transaction');
   }
   User
     .findOne({ passwordResetToken: req.params.token })
@@ -303,7 +304,7 @@ exports.postReset = (req, res, next) => {
  */
 exports.getForgot = (req, res) => {
   if (req.isAuthenticated()) {
-    return res.redirect('/');
+    return res.redirect('/transaction');
   }
   res.render('account/forgot', {
     title: 'Forgot Password'
