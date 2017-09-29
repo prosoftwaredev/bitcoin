@@ -1,27 +1,38 @@
-extends layout
+extends ../layout
 
 block content
   .row
     .page-header
-    h3 Transaction
+      h3 Send To
   form.form-horizontal(method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group
       label.col-sm-3.control-label(for='amount') Amount
       .col-sm-7
-        input.form-control(type='text', name='amount', id='amount', placeholder='Amount', autofocus, required)
-    .form-group 
-      label.col-sm-3.control-label(for='send_to') Send To
+        input.form-control(type='number', name='amount', id='amount', placeholder='Amount', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='send_to') Received Users
       .col-sm-7
-        select.form-control(name='send_to', id='send_to', placeholder='Send To', required)
+        select.show-menu-arrow.selectpicker.form-control(name='send_to', id='send_to', placeholder='Send To', required, multiple, data-live-search="true")
             each val, idx in users
-              option(valule=val.id) val.username
+              option(valule=val._id) #{val.username}
+    .form-group
+      label.col-sm-3.control-label(for='address') Address
+      .col-sm-7
+        .row
+          .col-sm-8
+            input.form-control(type='text', name='address', id='adress',placeholder='Type receiver address')
+          .col-sm-4
+            button.btn.btn-primary(type='button')
+              i.fa.fa-plus
+              | Add
+    .form-group
+      label.col-sm-3.control-label(for='received_list') Received List
+      .col-sm-7
+        .received-list
+
     .form-group
       .col-sm-offset-3.col-sm-7
         button.col-sm-3.btn.btn-primary(type='submit')
           i.fa.fa-sign-in
           | Send
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        a.btn.btn-link(href='/forgot') Forgot your password?
-        hr
