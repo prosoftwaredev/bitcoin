@@ -15,22 +15,22 @@ block content
       .col-sm-7
         select.show-menu-arrow.selectpicker.form-control(name='send_to', id='send_to', placeholder='Send To', required, multiple, data-live-search="true")
             each val, idx in users
-              option(valule=val._id) #{val.username}
+              option(value=val._id) #{val.username}
     .form-group
       label.col-sm-3.control-label(for='address') Address
       .col-sm-7
         .row
           .col-sm-8
-            input.form-control(type='text', name='address', id='adress',placeholder='Type receiver address')
+            input.form-control.text-address(type='text', name='address', id='adress',placeholder='Type receiver address')
           .col-sm-4
-            button.btn.btn-primary(type='button')
+            button.btn.btn-primary.btn-add(type='button')
               i.fa.fa-plus
               | Add
     .form-group
       label.col-sm-3.control-label(for='received_list') Received List
       .col-sm-7
+        input(type='hidden' id='store_selected')
         .received-list
-
     .form-group
       .col-sm-offset-3.col-sm-7
         button.col-sm-3.btn.btn-primary(type='submit')
