@@ -1,28 +1,151 @@
 extends layout
 
 block content
-  .row
-    .page-header
-    h3 Sign in
-  form.form-horizontal(method='POST' action='/login')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label.col-sm-3.control-label(for='email') Email OR UserName
-      .col-sm-7
-        input.form-control(type='email', name='email', id='email', placeholder='Email OR Username', autofocus, required)
-    .form-group 
-      label.col-sm-3.control-label(for='password') Password
-      .col-sm-7
-        input.form-control(type='password', name='password', id='password', placeholder='Password', required)
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        button.col-sm-3.btn.btn-primary(type='submit')
-          i.fa.fa-sign-in
-          | Login
-        a.col-sm-3.btn.btn-primary(href='/signup')
-          i.fa.fa-user
-          | Sign Up
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        a.btn.btn-link(href='/forgot') Forgot your password?
-        hr
+  include partials/header
+  .main.main-raised
+    .container
+      .section.text-center.section-landing
+        .row
+          .col-md-8.col-md-offset-2
+            h2.title Let's talk product
+            | 	                        
+            h5.description
+              | This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.
+        | 					
+        .features
+          .row
+            .col-md-4
+              .info
+                .icon.icon-primary
+                  i.material-icons chat
+                | 									
+                h4.info-title First Feature
+                | 									
+                p
+                  | Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
+            | 		                    
+            .col-md-4
+              .info
+                .icon.icon-success
+                  i.material-icons verified_user
+                | 									
+                h4.info-title Second Feature
+                | 									
+                p
+                  | Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
+            | 		                    
+            .col-md-4
+              .info
+                .icon.icon-danger
+                  i.material-icons fingerprint
+                | 									
+                h4.info-title Third Feature
+                | 									
+                p
+                  | Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.
+      | 	        	
+      .section.text-center
+        h2.title Here is our team
+        | 					
+        .team
+          .row
+            .col-md-4
+              .team-player
+                img.img-raised.img-circle(src="/images/avatar.jpg", alt="Thumbnail Image")
+                | 			                        
+                h4.title
+                  | Gigi Hadid 
+                  br
+                  | 										
+                  small.text-muted Model
+                | 			                        
+                p.description
+                  | You can write here details about one of your team members. You can give more details about what they do. Feel free to add some 
+                  a(href="#") links
+                  |  for people to be able to follow them outside the site.
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-twitter
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-instagram
+                | 									
+                a.btn.btn-simple.btn-just-icon.btn-default(href="#pablo")
+                  i.fa.fa-facebook-square
+            | 			                
+            .col-md-4
+              .team-player
+                img.img-raised.img-circle(src="/images/christian.jpg", alt="Thumbnail Image")
+                | 			                        
+                h4.title
+                  | Christian Louboutin
+                  br
+                  | 										
+                  small.text-muted Designer
+                | 			                        
+                p.description
+                  | You can write here details about one of your team members. You can give more details about what they do. Feel free to add some 
+                  a(href="#") links
+                  |  for people to be able to follow them outside the site.
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-twitter
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-linkedin
+            | 			                
+            .col-md-4
+              .team-player
+                img.img-raised.img-circle(src="/images/kendall.jpg", alt="Thumbnail Image")
+                | 			                        
+                h4.title
+                  | Kendall Jenner
+                  br
+                  | 										
+                  small.text-muted Model
+                | 			                        
+                p
+                  | You can write here details about one of your team members. You can give more details about what they do. Feel free to add some 
+                  a(href="#") links
+                  |  for people to be able to follow them outside the site.
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-google-plus
+                | 									
+                a.btn.btn-simple.btn-just-icon(href="#pablo")
+                  i.fa.fa-youtube-play
+                | 									
+                a.btn.btn-simple.btn-just-icon.btn-default(href="#pablo")
+                  i.fa.fa-twitter
+      | 	        	
+      .section.landing-section
+        .row
+          .col-md-8.col-md-offset-2
+            h2.text-center.title Work with us
+            | 							
+            h4.text-center.description
+              | Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.
+            | 	                        
+            form.contact-form
+              .row
+                .col-md-6
+                  .form-group.label-floating
+                    label.control-label Your Name
+                    | 											
+                    input.form-control(type="email")
+                | 	                                
+                .col-md-6
+                  .form-group.label-floating
+                    label.control-label Your Email
+                    | 											
+                    input.form-control(type="email")
+              | 								
+              .form-group.label-floating
+                label.control-label Your Messge
+                | 									
+                textarea.form-control(rows="4")
+              | 	                            
+              .row
+                .col-md-4.col-md-offset-4.text-center
+                  button.btn.btn-primary.btn-raised
+                    | Send Message

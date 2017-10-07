@@ -3,7 +3,9 @@
  * Home page.
  */
 exports.index = (req, res) => {
+  console.log('hehehe');
   res.render('home', {
-    title: 'Home'
+    title: 'Home',
+    bodyclass: 'landing-page'
   });
 };

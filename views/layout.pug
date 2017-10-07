@@ -8,25 +8,31 @@ html
     meta(name='csrf-token', content=_csrf)
     title #{title} - Hackathon Starter
     link(rel='shortcut icon', href='/favicon.png')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700")
     link(rel='stylesheet', href='/css/main.css')
-    link(rel='stylesheet', href='/css/custom.css')
+    link(rel='stylesheet', href='/css/demo.css')
 
-  body
-    include partials/header
+  body(class=bodyclass)
+    include partials/menu
 
-    .container
-      include partials/flash
-      include partials/banner
+    .wrapper
       block content
 
     include partials/footer
 
-    script(src='/js/lib/jquery-3.1.1.min.js')
-    script(src='/js/lib/bootstrap.min.js')
-    script(src='/js/lib/bootstrap-select.js')
+    script(src='/js/lib/jquery.min.js')
+    script(src="/js/lib/bootstrap.min.js")
+    script(src="/js/lib/material.min.js")
+
+    script(src="/js/lib/nouislider.min.js")
+
+    script(src="/js/lib/bootstrap-datepicker.js")
+
+    script(src="/js/lib/material-kit.js")
+
     script(src='/js/main.js')
 
-    // Google Analytics: change UA-XXXXX-X to be your site's ID
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

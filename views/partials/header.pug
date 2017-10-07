@@ -1,40 +1,34 @@
-.navbar.navbar-default.navbar-fixed-top
-  .container
-    .navbar-header
-      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(href='/')
-        i.fa.fa-cube
-        | Bitcoin
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li(class=(title === 'Home') ? 'active' : undefined)
-          a(href='/') Home
-        li(class=(title === 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
-        li
-          a(href='/status') Aboutus
-      ul.nav.navbar-nav.navbar-right
-        if !user
-          li(class=(title === 'Login') ? 'active' : undefined)
-            a(href='/login') Login
-          li(class=(title === 'Create Account') ? 'active' : undefined)
-            a(href='/signup') Create Account
-        else
-          li.dropdown(class=(title === 'Account Management') ? 'active' : undefined)
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              if user.profile.picture
-                img(src=user.profile.picture)
-              else
-                img(src=user.gravatar(60))
-              span= user.profile.name || user.email || user.id
-              i.caret
-            ul.dropdown-menu
-              li
-                a(href='/account') My Account
-              li.divider
-              li
-                a(href='/logout') Logout
+.header.header-filter(style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');")
+  .card.card-raised.card-carousel
+    #carousel-example-generic.carousel.slide(data-ride='carousel')
+      .carousel.slide(data-ride='carousel')
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#carousel-example-generic', data-slide-to='0')
+          li(data-target='#carousel-example-generic', data-slide-to='1')
+          li(data-target='#carousel-example-generic', data-slide-to='2')
+        // Wrapper for slides
+        .carousel-inner
+          .item.active
+            img(src='/images/bg2.jpeg', alt='Awesome Image')
+            .carousel-caption
+              h4
+                i.material-icons location_on
+                |  Yellowstone National Park, United States
+          .item
+            img(src='/images/bg3.jpeg', alt='Awesome Image')
+            .carousel-caption
+              h4
+                i.material-icons location_on
+                |  Somewhere Beyond, United States
+          .item
+            img(src='/images/bg4.jpeg', alt='Awesome Image')
+            .carousel-caption
+              h4
+                i.material-icons location_on
+                |  Yellowstone National Park, United States
+        // Controls
+        a.left.carousel-control(href='#carousel-example-generic', data-slide='prev')
+          i.material-icons keyboard_arrow_left
+        a.right.carousel-control(href='#carousel-example-generic', data-slide='next')
+          i.material-icons keyboard_arrow_right
