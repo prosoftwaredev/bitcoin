@@ -177,10 +177,11 @@ h2.title{
 }
 
 .signup-page{
+    background-image: url('/images/city.jpg'); 
+    background-size: cover; 
+    background-position: top center;
+    min-height: 100vh;
     .wrapper{
-        > .header{
-            min-height: 100vh;
-        }
         .card-signup{
             margin: 160px 0 40px;
         }

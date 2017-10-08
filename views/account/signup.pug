@@ -1,27 +1,34 @@
 extends ../layout
 
 block content
-  .page-header
-    h3 Sign up
-  form.form-horizontal(id='signup-form', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label.col-sm-3.control-label(for='username') Username
-      .col-sm-7
-        input.form-control(type='text', name='username', id='username', placeholder='Username', required)
-      label.col-sm-3.control-label(for='email') Email
-      .col-sm-7
-        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, required)
-    .form-group
-      label.col-sm-3.control-label(for='password') Password
-      .col-sm-7
-        input.form-control(type='password', name='password', id='password', placeholder='Password', required)
-    .form-group
-      label.col-sm-3.control-label(for='confirmPassword') Confirm Password
-      .col-sm-7
-        input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        button.btn.btn-success(type='submit')
-          i.fa.fa-user-plus
-          | Signup
+  .header.header-filter
+    .container
+      .row
+        .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3
+          .card.card-signup
+            form.form(method='', action='')
+              .header.header-primary.text-center
+                h4 Sign Up
+                .social-line
+                  a.btn.btn-simple.btn-just-icon(href='#pablo')
+                    i.fa.fa-facebook-square
+                  a.btn.btn-simple.btn-just-icon(href='#pablo')
+                    i.fa.fa-twitter
+                  a.btn.btn-simple.btn-just-icon(href='#pablo')
+                    i.fa.fa-google-plus
+              p.text-divider Or Be Classical
+              .content
+                .input-group
+                  span.input-group-addon
+                    i.material-icons face
+                  input.form-control(type='text', placeholder='First Name...')
+                .input-group
+                  span.input-group-addon
+                    i.material-icons email
+                  input.form-control(type='text', placeholder='Email...')
+                .input-group
+                  span.input-group-addon
+                    i.material-icons lock_outline
+                  input.form-control(type='password', placeholder='Password...')
+              .footer.text-center
+                a.btn.btn-simple.btn-primary.btn-lg(href='#pablo') Get Started
